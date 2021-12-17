@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">SpotOnCrypto</string>
+    <string name="crypto_rank">#</string>
+    <string name="crypto_name">Name</string>
+    <string name="crypto_change">24h</string>
+    <string name="crypto_price">Price</string>
+    <string name="loading">Loading....</string>
+</resources>
