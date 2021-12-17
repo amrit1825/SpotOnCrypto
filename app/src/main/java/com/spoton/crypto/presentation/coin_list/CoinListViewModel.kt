@@ -15,7 +15,10 @@ import javax.inject.Inject
 class CoinListViewModel @Inject constructor(private val getCoinsUseCase: GetCoinsUseCase) :
     ViewModel() {
 
+    // Mutable object for CoinListState. Will not be exposed to fragment.
     private val mState = MutableLiveData(CoinListState())
+
+    // Non-mutable object will only be exposed to fragment to prevent unwanted updates.
     val state: LiveData<CoinListState> = mState
 
     fun getCoins() {

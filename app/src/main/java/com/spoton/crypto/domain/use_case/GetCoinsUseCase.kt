@@ -10,6 +10,7 @@ import retrofit2.HttpException
 import java.io.IOException
 import javax.inject.Inject
 
+// Clean architecture use-case to represent get coins feature.
 class GetCoinsUseCase @Inject constructor(private val coinCapRepository: CoinCapRepository) {
 
     operator fun invoke(): Flow<Resource<List<Coin>>> = flow {

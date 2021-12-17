@@ -5,6 +5,7 @@ import com.spoton.crypto.data.remote.dto.DataDto
 import com.spoton.crypto.domain.repository.CoinCapRepository
 import javax.inject.Inject
 
+// Repository implementation for repository interface in domain layer.
 class CoinCapRepositoryImpl @Inject constructor(private val coinCapApiService: CoinCapApiService) :
     CoinCapRepository {
 

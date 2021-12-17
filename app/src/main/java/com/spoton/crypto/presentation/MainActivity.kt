@@ -5,6 +5,7 @@ import android.os.Bundle
 import com.spoton.crypto.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
+// Single main activity for application.
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 

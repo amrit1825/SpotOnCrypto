@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.spoton.crypto.R
 import com.spoton.crypto.databinding.FragmentCoinlistBinding
 
+// Fragment to show coins list.
 class CoinListFragment : Fragment() {
 
     private val coinListViewModel: CoinListViewModel by activityViewModels()
@@ -33,16 +34,19 @@ class CoinListFragment : Fragment() {
         setObserver()
     }
 
+    // Runnable will be executed when fragment is visible and interactive.
     override fun onResume() {
         super.onResume()
         handler.post(task)
     }
 
+    // Removing runnable if user is about to leave the fragment.
     override fun onPause() {
         super.onPause()
         handler.removeCallbacks(task)
     }
 
+    // Runnable for fetching updated data every 10 seconds.
     private val task = object : Runnable {
         override fun run() {
             coinListViewModel.getCoins()
@@ -55,6 +59,7 @@ class CoinListFragment : Fragment() {
         binding.coinList.adapter = CoinListAdapter(emptyList())
     }
 
+    // Swipe refresh layout for refreshing data on screen.
     private fun setListener() {
         val swipeRefresh = binding.swipeRefresh
         swipeRefresh.setOnRefreshListener {
@@ -63,6 +68,7 @@ class CoinListFragment : Fragment() {
         }
     }
 
+    // Setting observer to observe data changes.
     private fun setObserver() {
         coinListViewModel.state.observe(viewLifecycleOwner) { data -> updateUI(data) }
     }
@@ -88,6 +94,7 @@ class CoinListFragment : Fragment() {
         binding.message.text = message
     }
 
+    // Function to handle visibility of coin list, loading & error messages.
     private fun hideMessage(hide: Boolean) {
         if (hide) {
             binding.coinList.visibility = View.VISIBLE

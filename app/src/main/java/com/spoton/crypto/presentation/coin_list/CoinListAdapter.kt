@@ -10,6 +10,7 @@ import com.spoton.crypto.common.toTwoDecimalStringWithPercentage
 import com.spoton.crypto.databinding.CoinItemLayoutBinding
 import com.spoton.crypto.domain.model.Coin
 
+// Adapter for showing coins on screen.
 class CoinListAdapter(private var coinList: List<Coin>) :
     RecyclerView.Adapter<CoinListAdapter.CoinListViewHolder>() {
 
@@ -27,6 +28,7 @@ class CoinListAdapter(private var coinList: List<Coin>) :
         return coinList.size
     }
 
+    // Function to set text on view holder views.
     private fun setText(viewHolder: CoinListViewHolder, position: Int) {
         val change = coinList[position].changePercent24Hr
         val price = coinList[position].priceUsd
@@ -43,6 +45,7 @@ class CoinListAdapter(private var coinList: List<Coin>) :
         }
     }
 
+    // Function to change text color depending on price increase or decrease.
     private fun setTextColor(viewHolder: CoinListViewHolder, colorId: Int) {
         viewHolder.binding.change.setTextColor(
             viewHolder.itemView.context.resources.getColor(
